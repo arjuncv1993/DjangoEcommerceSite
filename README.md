@@ -11,3 +11,5 @@ Login page
 Dropdow List
 ![Screenshot from 2022-03-09 13-25-24](https://user-images.githubusercontent.com/98304528/157397309-d7046042-e694-49e4-b414-b7242143f20b.png)
 
+Cart Page
+![Screenshot from 2022-03-09 13-27-02](https://user-images.githubusercontent.com/98304528/157397477-5d0cc979-ecba-4314-b000-5845a14a7772.png)
