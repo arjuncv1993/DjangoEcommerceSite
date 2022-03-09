@@ -1,12 +1,29 @@
 {% extends 'base.html' %}
 {% block content %}
-<div class="container" style="min-height: 648px;">
-    <div class="cart_div">
-        <h3>Shipping Address</h3>
-        {% for message in messages %}
-        <h4>{{message}}</h4>
-        {% endfor %}
 
+<div class="container">
+    <div class="cart_div">
+        <h3 style="color: black;"><strong>User Profile</strong></h3>
+
+        <h4>Name: {{request.user.first_name}} {{request.user.last_name}}</h4>
+        <h4>Email: {{request.user.email}}</h4><br>
+        {% for i in add %}
+            <div id=address class="address_div">
+                <form action="login/deleteaddress/{{i.id}}">
+                    <div style="width: 90%; height: 120px;float: left; height: 100%;">
+                        {{i.Address_line1}}<br>
+                        {{i.Address_line2}}<br>
+                        {{i.City}}, {{i.State}}, Pin:{{i.Pincode}}<br>
+                        {{i.landmark}}<br>
+                        {{i.Phone_no}}<br>
+                        <input type="hidden" name="path" value="{{request.path}}">
+                        <input type="submit" name="submit" value="Delete Address" style="color: black;">
+                    </div>
+                </form>
+
+            </form>
+            </div>
+            {% endfor %}
         <button type="button" onclick="add_address()" style="color: black;">+Add Address</button>
         <br>
         <form action="/login/shippingdata" method="post" id="registerform" style="display: none;">
@@ -38,36 +55,14 @@
             <input type="hidden" name="path2" value="{{request.path}}">
             <center style="color: black;"><input type="submit" value="Add"></center>
         </form>
+
         <br>
         <br>
-        <Form action="placeorder" method="post">
-            {% csrf_token %}
 
-            {% for i in add %}
-            <input type="radio" name='id' value='{{i.id}}' style="float: left;" required>
-            <div id=address class="address_div">
-                <div style="width: 90%; height: 120px;float: left; height: 100%;">
-                    {{i.username.first_name}} {{i.username.last_name}}<br>
-                    {{i.Address_line1}}<br>
-                    {{i.Address_line2}}<br>
-                    {{i.City}}, {{i.State}}, Pin:{{i.Pincode}}<br>
-                    {{i.landmark}}<br>
-                    {{i.Phone_no}}<br>
-                </div>
-                <div
-                    style="width: 10%; height: 120px; float: left; justify-content: center;display: flex; align-items: center;">
-                    <a href="login/deleteaddress/{{i.id}}">
-                        <box-icon name='trash'></box-icon>
-                    </a>
-                </div>
-            </div>
-            {% endfor %}
+        <a href="http://127.0.0.1:8000/mycart" style="color: black;"> <h4>My Cart Items</h4></a>
+        <br><br><br><br>
 
-            <br>
-            <br>
-            <a href="" style="color: black;"><input type="submit" value="Place Order"></a>
-            <a href="mycart" style="color: black;"><input type="button" value="Back"></a>
-        </Form>
     </div>
 </div>
+
 {% endblock %}

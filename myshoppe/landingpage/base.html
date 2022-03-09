@@ -60,7 +60,7 @@
                 {% if user.is_authenticated is False%}
                     <li><a href="/login/register"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
                 {% else %}
-                    <li><a href="/"><span class="glyphicon glyphicon-user"></span> {{idname}}</a></li>
+                    <li><a href="userprofile"><span class="glyphicon glyphicon-user"></span> {{request.user.username}}</a></li>
                 {% endif %}
                 {% if user.is_authenticated %}
                     <li><a href="/login/logout"><span class="glyphicon glyphicon-log-in"></span> Logout</a></li>
@@ -86,13 +86,17 @@
             <div style="width: 40%; float:left">
               <h2>My Shoppe</h2>
               <p style="color: white;">This is a Django Project Website created by Arjun CV </p>
-              <p><a href="#" class="icon_a"><i class="bi bi-facebook icon"></i></a><a href="#" class="icon_a"> <i class="bi bi-linkedin icon"></i></a>
-                <a href="#" class="icon_a"> <i class="bi bi-twitter icon"></i></a></p>
+              <p><a href="https://www.facebook.com/" class="icon_a"><i class="bi bi-facebook icon"></i></a>
+                <a href="https://www.instagram.com/?hl=en" class="icon_a"> <i class="bi bi-instagram icon"></i></a>
+                <a href="https://www.twitter.com" class="icon_a"> <i class="bi bi-twitter icon"></i></a></p>
             </div>
             <div style="width: 30%; float: left;">
               <h4 style="color: white;">Links</h4>
                 <ul class="list_tag">
                     <li>- <a href="/" class="icon_a">Home</a></li>
+                    {% if user.is_authenticated %}
+                        <li>- <a href="userprofile" class="icon_a">Profile</a></li>
+                    {% endif %}
                     <li>- <a href="mycart" class="icon_a">My Cart</a></li>
                     {% if user.is_authenticated %}
                         <li>- <a href="login/logout" class="icon_a">Logout</a></li>

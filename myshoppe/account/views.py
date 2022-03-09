@@ -92,6 +92,7 @@ def shippingaddress(request):
         # username = userdb.username
         # print(username_id)
         # print(username)
+        path = request.POST['path2']
         Address_line1 = request.POST['addressline1']
         Address_line2 = request.POST['addressline2']
         City = request.POST['city']
@@ -102,11 +103,12 @@ def shippingaddress(request):
         user = userdetails.objects.create(Address_line1= Address_line1, Address_line2= Address_line2, City= City, 
                                           State= State, Phone_no= Phone_no, Pincode= Pincode, landmark= landmark, username_id=request.user.id)
         user.save()
-        return redirect('shippingpage')
+        return redirect(path)
     else:
         return redirect('shippingpage')
     
 def deleteaddress(request,pid):
     userdetails.objects.get(id=pid).delete()
-    return redirect('shippingpage')
+    path = request.GET['path']
+    return redirect(path)
         

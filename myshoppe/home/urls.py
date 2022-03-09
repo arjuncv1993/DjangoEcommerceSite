@@ -12,5 +12,6 @@ urlpatterns = [
     path("placeorder", views.placeorder, name="placeorder"),
     path("deletecartitem/<str:pid>", views.deletecartitem, name="deletecartitem"),
     path("searchitem", views.searchitem, name="searchitem"),    
+    path("userprofile", views.userprofile, name="userprofile"),    
     
 ]

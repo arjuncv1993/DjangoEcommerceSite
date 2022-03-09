@@ -163,3 +163,12 @@ def searchitem(request):
         return HttpResponse(response)
     else:
         return HttpResponse("Request method Error")
+
+
+def userprofile(request):
+    page = loader.get_template('profilepage.html')
+    db = userdetails.objects.filter(username_id=request.user.id)
+    print(db)
+    data = {"add": db}
+    response = page.render(data, request)
+    return HttpResponse(response)
