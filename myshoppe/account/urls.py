@@ -10,4 +10,5 @@ urlpatterns = [
     path('logout', views.logout, name='logout'),
     path('shippingdata', views.shippingaddress, name='shippingdata'),
     path("deleteaddress/<str:pid>", views.deleteaddress, name="deleteaddress"),
+    path("deleteuser/<str:pid>", views.deleteuser, name="deleteaddress"),
 ]

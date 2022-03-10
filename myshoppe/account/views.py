@@ -111,4 +111,8 @@ def deleteaddress(request,pid):
     userdetails.objects.get(id=pid).delete()
     path = request.GET['path']
     return redirect(path)
-        
+
+
+def deleteuser(request,pid):
+    User.objects.get(id=pid).delete()
+    return redirect('homepage')
