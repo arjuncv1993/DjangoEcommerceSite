@@ -13,7 +13,6 @@ https://docs.djangoproject.com/en/4.0/ref/settings/
 from pathlib import Path
 import os
 
-
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -25,9 +24,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-$eb7tui+9tutwdskm8aq@$u2%$+=4ycfmp%8o%u#8v043r!2#)'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
-ALLOWED_HOSTS = ['127.0.0.1', 'newsite123.herokuapp.com']
+ALLOWED_HOSTS = ['127.0.0.1','newsite123.herokuapp.com']
 
 
 # Application definition
@@ -134,6 +133,4 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'collections')
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
-
-
 
